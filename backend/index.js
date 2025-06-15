@@ -8,11 +8,17 @@ const upload = multer({ dest: 'uploads/' });
 app.use(cors());
 app.use(express.json());
 
+// 🔧 Пинг для проверки Render
+app.get('/api/ping', (req, res) => {
+  res.send('pong');
+});
+
+// 🚀 Заказ
 app.post('/orders', upload.any(), (req, res) => {
   console.log('📦 Новый заказ:', req.body);
   res.json({ success: true });
 });
 
 app.listen(port, () => {
-  console.log(`✅ Сервер запущен на http://localhost:${port}`);
+  console.log(`✅ Сервер запущен на порту ${port}`);
 });
