@@ -1,5 +1,1 @@
-FROM node:18
-WORKDIR /app
-COPY backend /app
-RUN npm install
-CMD ["node", "index.js"]
+remove Dockerfile so Render uses render.yaml
